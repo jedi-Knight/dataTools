@@ -12,9 +12,10 @@ fs.readFile(process.argv[2], {
         console.log("error in source file: " + process.argv[2]);
         return;
     }
-    var csvLinesArray = data.trim().replace(/\"/g,"").split("\r\n");
-    var csvKeysArray = csvLinesArray.shift().split(",");
     
+    var csvLinesArray = data.trim().split("\n");
+    var csvKeysArray = csvLinesArray.shift().split(",");
+        
     var jsonArray = [];
     csvLinesArray.forEach(function(csvLine, index){
         var csvs = csvLine.trim().split(",");
