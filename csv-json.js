@@ -13,12 +13,12 @@ fs.readFile(process.argv[2], {
         return;
     }
     
-    var csvLinesArray = data.trim().split("\n");
+    var csvLinesArray = data.trim().replace(/\"/g,"").split("\n");
     var csvKeysArray = csvLinesArray.shift().split(",");
-        
+    if(process.argvp[4] && process.argvp[4]==="-v")console.log("number of entries in csv: "+csvLinesArray.length);
     var jsonArray = [];
     csvLinesArray.forEach(function(csvLine, index){
-        var csvs = csvLine.trim().split(",");
+        var csvs = csvLine.split(",");
         var csvJSON = {};
         csvs.forEach(function(csv, _index){
             csvJSON[csvKeysArray[_index]] = csv;
