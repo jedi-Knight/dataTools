@@ -5,6 +5,12 @@ if(!(process.argv[2] && process.argv[3])){
     return;
 }
 
+var outputDir = "./split-by-"+process.argv[3]+"-output";
+
+if (!fs.existsSync(outputDir)){
+    fs.mkdirSync(outputDir);
+}
+
 fs.readFile(process.argv[2], {
                 encoding: "utf-8"
             }, function(err, data){
@@ -27,7 +33,7 @@ fs.readFile(process.argv[2], {
     console.log("hang on there..all set, now writing the files..");
     
     Object.keys(splitJSONArrays).forEach(function(uniqueValInData, index){
-        fs.writeFile(uniqueValInData+".json", JSON.stringify(splitJSONArrays[uniqueValInData]), function(err){
+        fs.writeFile(outputDir+"/"+uniqueValInData+".json", JSON.stringify(splitJSONArrays[uniqueValInData]), function(err){
             if(err) throw err;
         });
     });
