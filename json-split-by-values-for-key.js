@@ -5,7 +5,7 @@ if(!(process.argv[2] && process.argv[3])){
     return;
 }
 
-var outputDir = "./split-by-"+process.argv[3]+"-output";
+var outputDir = "./split-by-"+process.argv[3].replace("/","_")+"-output";
 
 if (!fs.existsSync(outputDir)){
     fs.mkdirSync(outputDir);
