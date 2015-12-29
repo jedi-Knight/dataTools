@@ -17,7 +17,7 @@ def jsonArrayKeyShortener(jsonArray):
         #print(json.dumps(jsonArray))
         cleanedItem = {}
         for item_1, val_1 in item.items():
-            if type(val_1) is (str or int or float or long or complex): 
+            if type(val_1) is str or type(val_1) is int or type(val_1) is float: 
                 cleanedItem[re.sub(r'(^.).*(.)/(\w+$)', r'\3', item_1)] = val_1
             elif type(val_1) is list:
                 if len(val_1) and type(val_1[0]) is dict:
