@@ -15,7 +15,7 @@ fs.readFile(process.argv[2], {
     
     var csvLinesArray = data.trim().replace(/\"/g,"").split("\n");
     var csvKeysArray = csvLinesArray.shift().split(",");
-    if(process.argvp[4] && process.argvp[4]==="-v")console.log("number of entries in csv: "+csvLinesArray.length);
+    if(process.argv[4] && process.argvp[4]==="-v")console.log("number of entries in csv: "+csvLinesArray.length);
     var jsonArray = [];
     csvLinesArray.forEach(function(csvLine, index){
         var csvs = csvLine.split(",");
