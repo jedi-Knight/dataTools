@@ -6,3 +6,5 @@
 *.json
 *.geojson
 .DS_Store
+*.tsv
+*.csv
